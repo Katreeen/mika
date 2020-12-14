@@ -23,79 +23,79 @@ $(document).ready(function(){
     // ],
     onStart: function(data) {
       $res1.text(data.from + " ₽");
-  },
+    },
     onChange: function(data) {
       $res1.text(data.from + " ₽");
-  },
-     postfix: " ₽",
-});
+    },
+    postfix: " ₽",
+  });
 
-$range_day.ionRangeSlider({
-  skin: "round",
-  type: "single",
-  grid: true,
-  min: 7,
-  max: 30,
-  from: 7,
-  step: 1,
-  grid_num: 4, 
-  // grid_snap: true,
-  // values: [
-  //   "3000", "5000", "7000", "10000", "12000"
-  // ],
-  onStart: function(data) {
-    $res2.text(data.from + " дней");
-},
-  onChange: function(data) {
-    $res2.text(data.from + " дней");
-},
-   postfix: " дней",
-});
+  $range_day.ionRangeSlider({
+    skin: "round",
+    type: "single",
+    grid: true,
+    min: 7,
+    max: 30,
+    from: 7,
+    step: 1,
+    grid_num: 4, 
+    // grid_snap: true,
+    // values: [
+    //   "3000", "5000", "7000", "10000", "12000"
+    // ],
+    onStart: function(data) {
+      $res2.text(data.from + " дней");
+    },
+    onChange: function(data) {
+      $res2.text(data.from + " дней");
+    },
+    postfix: " дней",
+  });
   
 
+  $('.footer_menu .navbar-toggler').click(function(){
+    if ($('.footer_menu_nav').hasClass("active")){
+      $('.footer_menu_nav').removeClass("active").slideUp();
+    } else{
+      $('.footer_menu_nav ').addClass("active").slideDown();
+    }
+    return false;
+  });
 
+  $('input[type="file"]').change(function(){
+    var value = $("input[type='file']").val();
+    $('.js-value').text(value);
+  });
 
-$('.footer_menu .navbar-toggler').click(function(){
-  if ($('.footer_menu_nav').hasClass("active")){
-    $('.footer_menu_nav').removeClass("active").slideUp();
-  } else{
-    $('.footer_menu_nav ').addClass("active").slideDown();
+  if($('.input_box .form-control').val.length >= 1){
+    $(this).next('.input_name').addClass('-top');
+  }else{
+    $(this).next('.input_name').removeClass('-top');
   }
-  return false;
-})
 
 
+  $('.input_box .form-control').on('keyup',function(){
+    if($(this).val.length >= 1){
+      $(this).next('.input_name').addClass('-top');
+    }else{
+      $(this).next('.input_name').removeClass('-top');
+    }
+  })
+
+  // mask
+  $(function(){
+    $("#tel").mask("+7(999) 999-9999");
+    $("#birth_date").mask('99.99.99',{placeholder:"01.08.77"});
+    $("#series").mask('9999-999999',{placeholder:"1332-412412"});
+    $("#issue").mask('99.99.99',{placeholder:"01.08.77"});
+    $("#department_code").mask('999-999',{placeholder:"100-200"});
+  });
 
 
-
-// кнопка вверх
-$(function() {
-	$(window).scroll(function() {
-	 if($(this).scrollTop() != 0) {
-	   $('#toTop').fadeIn();
-	 } else {
-	   $('#toTop').fadeOut();
-	 }
-	});
-	$('#toTop').click(function() {
-	 $('body,html').animate({scrollTop:0},800);
-	});
 });
 
-// mask
-$(function(){
-  $("#tel").mask("+7(999) 999-9999");
-});
-
-if($(window).width()<='575'){}
 
 
 
 
-
-
-
-
-
-});//$(document).ready
 
